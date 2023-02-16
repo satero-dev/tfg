@@ -1,2 +1,2 @@
 # TFG
-Repositori Treball Final de Grau
+Repositori del Treball Final de Grau
