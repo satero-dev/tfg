@@ -5,10 +5,13 @@ import { Action } from "../middleware/actions";
 export const userAuth = {
   login: (action: Action) => {
     const auth = getAuth();
-    console.log("USERAUTH");
-    console.log(action.payload.user);
-    console.log("USERAUTH2");
-    signInWithEmailAndPassword(auth, action.payload.user, action.payload.pass)
+    let user = action.payload.user;
+    let pass = action.payload.pass;
+
+    user = "satero@tauli.cat";
+    pass = "T0t0r0!!";
+
+    signInWithEmailAndPassword(auth, user, pass)
       .then((userCredential) => {
         // Signed in
         //const user = userCredential.user;
