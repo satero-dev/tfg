@@ -1,5 +1,8 @@
-import React from "react";
+import React, { ChangeEvent, useState } from "react";
 import { useAppContext } from "../../middleware/context-provider";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import { Button, Input } from "@mui/material";
 
 type Props = {
   children?: React.ReactNode;
@@ -8,13 +11,21 @@ type Props = {
 export const LoginForm = ({ children }: Props) => {
   const [state, dispatch] = useAppContext();
 
+  const [inputUser, setInputUser] = useState("");
+  const [inputPass, setInputPass] = useState("");
+
   const onLogin = () => {
-    console.log("Logging in!");
-    dispatch({ type: "LOGIN" });
+    console.log("Log in!");
+    dispatch({
+      type: "LOGIN",
+      payload: { user: inputUser, pass: inputPass },
+    });
   };
 
   const onLogout = () => {
     console.log("Log out!");
+    setInputUser("");
+    setInputPass("");
     dispatch({ type: "LOGOUT" });
   };
 
@@ -22,11 +33,43 @@ export const LoginForm = ({ children }: Props) => {
     <h1>
       {state.user ? (
         <>
-          <p>{state.user.displayName}</p>
-          <button onClick={onLogout}>Logout</button>
+          <p>Hola {state.user.email}</p>
+          <Button variant="contained" onClick={onLogout}>
+            LOGOUT
+          </Button>
         </>
       ) : (
-        <button onClick={onLogin}>Login</button>
+        <>
+          <Box
+            component="form"
+            sx={{
+              "& > :not(style)": { m: 1, width: "25ch" },
+            }}
+            noValidate
+            autoComplete="off"
+          >
+            <TextField
+              type="text"
+              id="email"
+              label="Introduce contraseña"
+              variant="outlined"
+              defaultValue="satero@tauli.ca"
+              onChange={(event) => setInputUser(event.target.value)}
+            />
+            <TextField
+              type="password"
+              id="password"
+              label="Introduce contraseña"
+              variant="outlined"
+              defaultValue="T0t0r0!"
+              onChange={(event) => setInputPass(event.target.value)}
+            />
+          </Box>
+
+          <Button variant="contained" onClick={onLogin}>
+            LOGIN
+          </Button>
+        </>
       )}
     </h1>
   );
