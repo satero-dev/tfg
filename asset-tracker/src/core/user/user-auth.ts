@@ -1,5 +1,5 @@
 import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
-import { Action } from "../middleware/actions";
+import { Action } from "../../middleware/actions";
 
 // Estructura de constante userAuth
 export const userAuth = {

@@ -3,6 +3,7 @@ import { useAppContext } from "../../middleware/context-provider";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { Button, Input } from "@mui/material";
+import { Navigate } from "react-router-dom";
 
 type Props = {
   children?: React.ReactNode;
@@ -22,55 +23,30 @@ export const LoginForm = ({ children }: Props) => {
     });
   };
 
-  const onLogout = () => {
-    console.log("Log out!");
-    setInputUser("");
-    setInputPass("");
-    dispatch({ type: "LOGOUT" });
-  };
+  if (state.user) {
+    return <Navigate to="/map" />;
+  }
 
   return (
-    <h1>
-      {state.user ? (
-        <>
-          <p>Hola {state.user.email}</p>
-          <Button variant="contained" onClick={onLogout}>
-            LOGOUT
-          </Button>
-        </>
-      ) : (
-        <>
-          <Box
-            component="form"
-            sx={{
-              "& > :not(style)": { m: 1, width: "25ch" },
-            }}
-            noValidate
-            autoComplete="off"
-          >
-            <TextField
-              type="text"
-              id="email"
-              label="Introduce contraseña"
-              variant="outlined"
-              defaultValue="satero@tauli.ca"
-              onChange={(event) => setInputUser(event.target.value)}
-            />
-            <TextField
-              type="password"
-              id="password"
-              label="Introduce contraseña"
-              variant="outlined"
-              defaultValue="T0t0r0!"
-              onChange={(event) => setInputPass(event.target.value)}
-            />
-          </Box>
+    <>
+      <TextField
+        type="text"
+        id="email"
+        label="Introduce usuario"
+        variant="outlined"
+        onChange={(event) => setInputUser(event.target.value)}
+      />
+      <TextField
+        type="password"
+        id="password"
+        label="Introduce contraseña"
+        variant="outlined"
+        onChange={(event) => setInputPass(event.target.value)}
+      />
 
-          <Button variant="contained" onClick={onLogin}>
-            LOGIN
-          </Button>
-        </>
-      )}
-    </h1>
+      <Button variant="contained" onClick={onLogin}>
+        LOGIN
+      </Button>
+    </>
   );
 };
