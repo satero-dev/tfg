@@ -7,7 +7,8 @@ export type ActionType =
   | "UPDATE_USER"
   | "LOGOUT"
   | "START_MAP"
-  | "REMOVE_MAP";
+  | "REMOVE_MAP"
+  | "ADD_BUILDING";
 
 /*La interface Action contiene type (el tipo de acción) y payload (convención para referirnos a 
 los datosque necesita una acción para funcionar correctamente) */
