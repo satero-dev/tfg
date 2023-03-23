@@ -12,7 +12,7 @@ export const MapViewer = ({ children }: Props) => {
   const [state, dispatch] = useAppContext();
   const [isCreating,setIsCreating] = useState(false);
   
-  const { user} = state;
+  const { user, building} = state;
   const containerRef = useRef(null);
 
   const onToggleCreate = () => {
@@ -40,6 +40,11 @@ export const MapViewer = ({ children }: Props) => {
 
   if (!state.user) {
     return <Navigate to="/login" />;
+  }
+
+  if(building){
+    const url=`/building?id=${building}`
+    return <Navigate to={url} />
   }
 
   const onLogout = () => {

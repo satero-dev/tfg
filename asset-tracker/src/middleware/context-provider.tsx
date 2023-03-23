@@ -13,6 +13,7 @@ import { useReducer, createContext, useContext } from "react";
 import { Action } from "./actions";
 import { Authenticator } from "./authenticator";
 import { executeCore } from "./core-handler";
+import { Events } from "./event-handler";
 import { initialState, State } from "./state";
 import { reducer } from "./state-handler";
 
@@ -30,10 +31,15 @@ const appContext = createContext<[State, React.Dispatch<Action>]>([
 export const ContextProvider = ({ children }: Props) => {
   const [state, setState] = useReducer(reducer, initialState);
 
+  const events = new Events();
+  events.on("OPEN_BUILDING", (buildingID: string) => {
+    setState({type:"OPEN_BUILDING", payload: buildingID});
+  })
+
   //Dispatch es la parte de un programa encargada de lanzar un proceso en el servidor de un entorno cliente/servidor
   const dispatch = (value: Action) => {
     setState(value); //Actualizamos la interfaz de usuario
-    executeCore(value); //Ejecutamos la lógica que queremos en el servidor
+    executeCore(value, events); //Ejecutamos la lógica que queremos en el servidor
   };
 
   return (

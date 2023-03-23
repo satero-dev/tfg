@@ -22,10 +22,11 @@
 }
 
 .gis-button-container {
+
+  position: absolute;
   display: flex;
-
+  margin: 1rem;
   flex-direction: column;
-
   width: 15rem;
 }
 

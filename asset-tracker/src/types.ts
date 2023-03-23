@@ -10,8 +10,10 @@ export interface GisParameters {
 
 export interface Building {
   uid: string;
+  userID: string;
   lat: number;
   lng: number;
+  nombre: string;
 }
 
 export interface LngLat {
