@@ -1,6 +1,6 @@
 {
-  "homepage": "http://satero-dev.github.io/asset-tracker",
-  "name": "asset-tracker",
+  "homepage": "http://satero-dev.github.io/astra",
+  "name": "astra",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
