@@ -1,5 +1,6 @@
 {
-  "name": "asset-tracker",
+  "homepage": "http://satero-dev.github.io/TFG",
+  "name": "tfg",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -27,6 +28,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -51,6 +54,7 @@
   },
   "devDependencies": {
     "@types/mapbox-gl": "^2.7.10",
-    "@types/three": "^0.135.0"
+    "@types/three": "^0.135.0",
+    "gh-pages": "^5.0.0"
   }
 }
