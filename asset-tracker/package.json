@@ -1,6 +1,6 @@
 {
-  "homepage": "http://satero-dev.github.io/TFG",
-  "name": "tfg",
+  "homepage": "http://satero-dev.github.io/asset-tracker",
+  "name": "asset-tracker",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
