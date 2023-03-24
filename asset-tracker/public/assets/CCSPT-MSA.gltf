@@ -1,0 +1,149 @@
+{
+  "asset": {
+    "generator": "COLLADA2GLTF",
+    "version": "2.0"
+  },
+  "scenes": [
+    {
+      "nodes": [0]
+    }
+  ],
+  "scene": 0,
+  "nodes": [
+    {
+      "children": [2, 1],
+      "name": "Root"
+    },
+    {
+      "mesh": 0,
+      "name": "Masa 1"
+    },
+    {
+      "mesh": 1,
+      "name": "Edificis"
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 2
+          },
+          "indices": 0,
+          "mode": 4,
+          "material": 0
+        }
+      ],
+      "name": "Masa 1"
+    },
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 4,
+            "POSITION": 5
+          },
+          "indices": 3,
+          "mode": 4,
+          "material": 1
+        }
+      ],
+      "name": "Edificis"
+    }
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "byteOffset": 0,
+      "componentType": 5123,
+      "count": 408,
+      "max": [253],
+      "min": [0],
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 0,
+      "componentType": 5126,
+      "count": 254,
+      "max": [0.7770000100135803, 1.0, 0.8600000143051148],
+      "min": [-0.7950000166893005, -1.0, -0.8600000143051148],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 3048,
+      "componentType": 5126,
+      "count": 254,
+      "max": [325.0880126953125, 129.4969940185547, 673.7169799804688],
+      "min": [-108.84700012207033, -7.008999824523926, 203.54299926757813],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 816,
+      "componentType": 5123,
+      "count": 2409,
+      "max": [1286],
+      "min": [0],
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 6096,
+      "componentType": 5126,
+      "count": 1287,
+      "max": [0.9950000047683716, 1.0, 0.9990000128746032],
+      "min": [-1.0, -1.0, -1.0],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 21540,
+      "componentType": 5126,
+      "count": 1287,
+      "max": [796.9550170898438, 64.7969970703125, 850.2849731445313],
+      "min": [-264.3389892578125, -12.303000450134278, -507.8219909667969],
+      "type": "VEC3"
+    }
+  ],
+  "materials": [
+    {
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [1.0, 0.501960813999176, 0.7529411911964417, 0.5],
+        "metallicFactor": 0.0
+      },
+      "doubleSided": true
+    },
+    {
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [0.5, 0.501960813999176, 0.7529411911964417, 0.5],
+        "metallicFactor": 0.0
+      },
+      "doubleSided": true
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteOffset": 36984,
+      "byteLength": 5634,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 0,
+      "byteLength": 36984,
+      "byteStride": 12,
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 42618,
+      "uri": "CCSPT-MSA.bin"
+    }
+  ]
+}

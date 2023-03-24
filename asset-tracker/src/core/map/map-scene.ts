@@ -79,41 +79,7 @@ export class MapScene {
       this.components.scene.get().add(label);
       this.labels[uid] = label;
 
-      const scene = this.components.scene.get();
-      const loader = new GLTFLoader();
-      //'https://docs.mapbox.com/mapbox-gl-js/assets/34M_17/34M_17.gltf'
 
-      //https://github.com/mrdoob/three.js/blob/master/examples/models/gltf/Parrot.glb
-      loader.load(
-        'assets/TAU.glb',
-        (gltf) => {
-          //console.log(gltf);
-
-          gltf.scene.traverse((child) => {
-            console.log(child);
-            /*if (child.type == "Mesh") {
-
-              (child as THREE.Mesh).material = new THREE.MeshStandardMaterial({ color: 0x1976d2 });
-            }*/
-
-            let obj = <THREE.Mesh>child;
-
-            if ((<THREE.Mesh>child).isMesh) {
-              obj.material = new THREE.MeshStandardMaterial({ color: 0xff0000 });
-              obj.material.side = THREE.BackSide;
-            }
-
-
-          })
-
-          scene.add(gltf.scene);
-
-          gltf.scene.position.set(model.x - center.x, -6.6, model.y - center.y);
-          let sc = 0.3;
-          gltf.scene.scale.set(sc, sc, sc);
-          gltf.scene.rotation.y = -0.5;
-        }
-      );
 
     }
   }
@@ -137,6 +103,42 @@ export class MapScene {
     const directionalLight2 = new THREE.DirectionalLight(0x0000ff);
     directionalLight2.position.set(0, 70, 100).normalize();
     scene.add(directionalLight2);
+
+    //const scene = this.components.scene.get();
+    const loader = new GLTFLoader();
+    //'https://docs.mapbox.com/mapbox-gl-js/assets/34M_17/34M_17.gltf'
+
+    //https://github.com/mrdoob/three.js/blob/master/examples/models/gltf/Parrot.glb
+    loader.load(
+      'assets/CCSPT-MSA.gltf',
+      (gltf) => {
+        //console.log(gltf);
+
+        gltf.scene.traverse((child) => {
+          console.log(child);
+          /*if (child.type == "Mesh") {
+
+            (child as THREE.Mesh).material = new THREE.MeshStandardMaterial({ color: 0x1976d2 });
+          }*/
+
+          let obj = <THREE.Mesh>child;
+
+          /*if ((<THREE.Mesh>child).isMesh) {
+            obj.material = new THREE.MeshStandardMaterial({ color: 0xff0000 });
+            obj.material.side = THREE.BackSide;
+          }*/
+
+
+        })
+
+        scene.add(gltf.scene);
+        gltf.scene.position.set(-40, 0, -190);
+        //gltf.scene.position.set(model.x - center.x, 0, model.y - center.y);
+        let sc = 0.315;
+        gltf.scene.scale.set(sc, sc, sc);
+        gltf.scene.rotation.y = -1.4;
+      }
+    );
 
 
   }
